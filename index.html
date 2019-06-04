@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/rainbow.css">
+    <style>
+        pre,
+        code {
+            font-size: 12px
+        }
+
+        #header {
+            width: 100%;
+            height: 40px;
+            background: #2e6da4;
+            line-height: 40px;
+            color: white;
+            font-size: 20px;
+            margin-bottom: 60px;
+        }
+
+        #md,
+        #html {
+            height: 510px;
+        }
+        
+        #html{
+            border-radius: 4px;
+            border:1px solid #ccc;
+            overflow-y: scroll;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <div id="header" class="text-center">MarkDown解析器</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-lg-6 col-md-6">
+                <textarea id="md" class="form-control" placeholder="请输入Markdown代码"></textarea>
+            </div>
+            <div id="html" class="col-lg-6 col-sm-6 col-md-6"></div>
+        </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/marked.js"></script>
+    <script src="js/highlight.pack.js"></script>
+
+    <script>
+        marked.setOptions({
+            highlight: function(code) {
+                return hljs.highlightAuto(code).value;
+            },
+            codeClsExtension: "hljs",
+            codePreCls:"hljs"
+        });
+        $("#md").on("keyup blur", function() {
+            $('#html').html(marked($("#md").val()));
+        })
+
+    </script>
+    -->
+
+    <!--
+    <div class="container">
+        <div class="main">我是main</div>
+        <div class="left">我是left</div>
+        <div class="right">我是right</div>
+    </div>
+-->
+
+    <!--
+    <div class="commit">
+        <div class="star star5">
+            <div class="staritem"></div>
+            <div class="star star4">
+                <div class="staritem"></div>
+                <div class="star star3">
+                    <div class="staritem"></div>
+                    <div class="star star2">
+                        <div class="staritem"></div>
+                        <div class="star star1">
+                            <div class="staritem"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+-->
+    <!--
+<div class="test"></div>
+<div class="span"><span>djifocjowemkdfsnofjiowjeionfjsdnofwejifjmsdfw</span></div>
+-->
+    <!--
+    <div class="container1">
+        <div class="item11"><div class="testtest"></div></div>
+    </div>
+-->
+    <!--
+    <div class="flex">
+        <div class="item1"></div>
+-->
+    <!--
+        <div class="item2"></div>
+        <div class="item3"></div>
+-->
+    <!--
+        <div class="item4"></div>
+        <div class="item5"></div>
+        <div class="item6"></div>
+-->
+    <!--    </div>-->
+    <!--
+    <div class="test">
+        <span>123</span>
+    </div>
+
+    <div class="father">
+        <div class="child1">dsafsaddsfasdfas</div>
+        <div class="child2">sadfasdf</div>
+    </div>
+    <div class="vertical">
+        <div class="item"></div>
+    </div>
+    <div class="transform"></div>
+    <div class="trans"></div>
+    <div class="bfc">我是BFC</div>
+    <div class="float">我是浮动</div>
+    <div class="outer">我是bfc下面的</div>
+-->
+    <!--
+    <div class="container">
+        <div class="main col ">
+            <div class="main_inner">Main</div>
+        </div>
+        <div class="left col ">Left</div>
+        <div class="right col ">Right</div>
+    </div>
+-->
+
+    <script>
+        //        function getParams(params, type) {
+        //            if (typeof Object == "object") {
+        //                if (type != "POST") {
+        //                    var arr = [];
+        //                    for (var key in params) {
+        //                        arr.push(key + "=" + params[key]);
+        //                    }
+        //                    return arr.join("&");
+        //                }
+        //                return JSON.stringify(params);
+        //            }
+        //            return params;
+        //        }
+        //
+        //        function ajax(type, url, params, async) {
+        //            if (!async) async = false;
+        //            else async = true;
+        //            var xhr = new XMLHttpRequest();
+        //            
+        //            return new Promise(function(resolve,reject){
+        //            if (type == "GET") {
+        //                url += url.indexOf('?') > -1 ? "&" + getParams(params) : '?' + getParams(params);
+        //                xhr.open("GET", url, async);
+        //                xhr.send(null);
+        //            } else if (type == "POST") {
+        //                xhr.open("POST", url, async);
+        //            }
+        //            var changed = function() {
+        //                    if (xhr.readyState == 4) {
+        //                        if (xhr.status >= 200 && xhr.state < 300) {
+        //                            resolve(xhr.responseText);
+        //                        } else {
+        //                            reject(xhr.status);
+        //                        }
+        //                    }
+        //                }
+        //            if (async) {
+        //                xhr.onreadystatechange = changed;
+        //            }else {
+        //                changed();
+        //            }
+        //            });
+        //        }
+        //        var test = new Promise(function(resolve){setTimeout(function(){resolve();resolve()},1000)});
+        //        var btn = document.getElementById("test");
+        //        btn.onclick = function(){
+        //            test.then(function(){console.log("resolved")});
+        //            console.log("12312313");
+        //        }
+
+        //        let promise = new Promise(function(resolve, reject) {
+        //            setTimeout(() => resolve(1), 1000);
+        //        });
+        //
+        //        promise.then(function(result) {
+        //            alert(result); // 1
+        //            return result * 2;
+        //        });
+        //
+        //        promise.then(function(result) {
+        //            alert(result); // 1
+        //            return result * 2;
+        //        });
+        //
+        //        promise.then(function(result) {
+        //            alert(result); // 1
+        //            return result * 2;
+        //        });
+        //        var promise1 = new Promise(function(resolve, reject) {
+        //  setTimeout(resolve, 1000,"1");
+        //});
+        //        var promise2 = new Promise(function(resolve, reject) {
+        //  setTimeout(reject, 2000,"2");
+        //});
+
+
+        //Promise.all([ promise2, promise3,promise1]).catch(function(values) {
+        //  console.log(values);
+        //});
+        //        var p1 = new Promise(function(resolve,reject){
+        //            setTimeout(resolve,3000);
+        //        });
+        //        var p2 = new Promise((resolve,reject)=>{
+        //                setTimeout(resolve,6000)
+        //            });
+        //        p1.then(()=>{
+        //            console.log("1");return p2;
+        //        }).then(()=>{
+        //            console.log(2);
+        //            return "test3";
+        //        }).then((data)=>{console.log(data)});
+        //        async function testSometing() {
+        //            console.log("执行testSometing");
+        //            return "testSometing";
+        //        }
+        //
+        //        async function testAsync() {
+        //            console.log("执行testAsync");
+        //            return Promise.resolve("hello async");
+        //        }
+        //
+        //        async function test() {
+        //            console.log("test start...");
+        //            const v1 = await testSometing(); //关键点1
+        //            console.log(v1);
+        //            const v2 = await testAsync();
+        //            console.log(v2);
+        //            console.log(v1, v2);
+        //            return "success";
+        //        }
+        //
+        //        var t = test();
+        //        
+        //        t.then(
+        //            function(data){
+        //                console.log(data)
+        //            }
+        //        );
+
+        //        var promise = new Promise((resolve) => {
+        //            console.log("promise start..");
+        //            resolve("promise");
+        //        }); //关键点2
+        //        promise.then((val) => console.log(val));
+        //
+        //        console.log("test end...")
+        //        var ttt =0.1+0.2;
+        //        console.log(ttt==0.3);
+        //        function testBind(arg1,arg2,arg3){
+        //            console.log(arguments);
+        //            console.dir(testBind)
+        //        }
+        //        console.dir(testBind.bind(window,1));
+        //        testBind(1,2);
+        //        var obj = {t1:"test1",t4:"test4"};
+        //        obj.t3="test3";
+        //        obj.t2="test2";
+        //        for(var index in obj){
+        //            console.log(index);
+        //        }
+
+        //        var data="asd ehe  rjr\n\
+        //d  erregrnt eruk\n\
+        //rth sthst ar   gae";
+        //        var arr = data.split("\n");
+        //        for(var index in arr){
+        //            arr[index]=arr[index].split(/ +/);
+        //        }
+        //        for(var val of arr){
+        //            console.log(JSON.stringify(val));
+        //        }
+
+        //        function beauty(str){
+        //            var arr = str.split(".");
+        //            function test(str){
+        //                if(str.length<=3) return str;
+        //                return test(str.slice(0,str.length-4))+","+str.slice(str.length-3);
+        //            }
+        //            return test(arr[0])+(arr[1]==undefined?"":"."+arr[1]);
+        //        }
+        //        console.dir(beauty);
+        //        console.log(beauty("1234567890.123456"));
+
+        //        var n = parseInt(readline());
+        //        var input = [];
+        //        var str = "";
+        //        var parsed = [];
+        //        for (var i = 0; i < n; i++) {
+        //            str = readline();
+        //            parsed = str.split(" ").map(val => parseInt(val));
+        //            input.push(parsed);
+        //        }
+        //        var input=[[1,2,3],[4,5,6],[7,8,9]];
+        //        var n=3;
+        ////        var m = parseInt(readline());
+        //        var s = 2;
+        //        var out = [];
+        //        
+        //        
+        //        switch (s) {
+        //            case 0:
+        //                break;
+        //            case 1:
+        //                for (let index = 0; index < n; index++) {
+        //                    let tarr = [];
+        //                    for (let i2 = n - 1; i2 >= 0; i2--) tarr.push(input[i2][index]);
+        //                    out.push(tarr);
+        //                }
+        //                break;
+        //            case 2:
+        //                for (let index = n - 1; index >= 0; index--) {
+        //                    let tarr = [];
+        //                    for (let i2 = n - 1; i2 >= 0; i2--) {
+        //                        tarr.push(input[index][i2]);
+        //                    }
+        //                    out.push(tarr);
+        //                }
+        //                break;
+        //            case 3:
+        //                for (let index = n - 1; index >= 0; index--) {
+        //                    let tarr = [];
+        //                    for (let i2 = 0; i2 < n; i2++) {
+        //                        tarr.push(input[i2][index]);
+        //                    }
+        //                    out.push(tarr);
+        //                }
+        //                break;
+        //        }
+        //        for (let item of out) {
+        //            console.log(item.join(" ") + "\n");
+        //        }
+
+
+        //
+        //        function split(n, k) {
+        //            var out = [];
+        //            if (n == 1) {
+        //                for (let i = 0; i < k; i++) {
+        //                    let ta = [];
+        //                    for (let j = 0; j < k; j++) {
+        //                        if (j == i) ta.push(1);
+        //                        else ta.push(0);
+        //                    }
+        //                    out.push(ta);
+        //                }
+        //                return out;
+        //            }
+        //            let ta = split(n - 1, k);
+        //            for (let i = 0; i < k; i++) {
+        //                let ta2 = [];
+        //                for (let j = 0; j < ta.length; j++) {
+        //                    ta2 = ta[j].slice(0);
+        //                    ta2[i]++;
+        //                    if (!out.some(function(item) {
+        //                            if (same(item, ta2)) return true;
+        //                        })) {
+        //                        out.push(ta2);
+        //                    }
+        //                }
+        //
+        //            }
+        //            return out;
+        //        }
+        //
+        //        function same(arr1, arr2) {
+        //            if (arr1.length != arr2.length) return false;
+        //            for (let index in arr1) {
+        //                if (arr1[index] != arr2[index]) return false;
+        //            }
+        //            return true;
+        //        }
+        //        console.log(split(3,2));
+        //        
+
+
+        //        function myFind(data, find, begin) { //从begin开始,从数组data中找出find，失败返回-1
+        //            if (begin < 0 || begin >= data.length) return -1;
+        //            let indexFind = 0;
+        //            let beginFind = -1;
+        //            while (data.length > begin) {
+        //                if (find[indexFind] == data[begin]) {
+        //                    if (beginFind == -1) beginFind = begin;
+        //                    indexFind++;
+        //                    if (indexFind >= find.length) break;
+        //                } else if (indexFind) {
+        //                    indexFind = 0;
+        //                    beginFind = -1;
+        //                }
+        //                begin++;
+        //            }
+        //            if (indexFind >= find.length) return beginFind;
+        //            return -1;
+        //        }
+        //        function myReplace(data, find, rep) { //用rep替换data中的find
+        //            let index = -1;
+        //            var res = [];
+        //            let dataIndex = 0;
+        //            while ((index = myFind(data, find, dataIndex)) > -1) {
+        //                myInsert(res, data.slice(dataIndex, index));
+        //                myInsert(res, rep);
+        //                dataIndex = index + find.length;
+        //            }
+        //            if (dataIndex <= data.length) myInsert(res, data.slice(dataIndex));
+        //            return res;
+        //        }
+        //        function myInsert(data1, data2) { //将数组data2值添加到data1中
+        //            for (let item of data2) {
+        //                data1.push(item);
+        //            }
+        //        }
+        //        console.log(myReplace(["a", "b", "c", "d", "b", "c", "d"], ["b", "c"], []));
+
+
+        //        function validate( iin , out) {
+        //            var tin = iin .slice(0),
+        //                tout = out .slice(0);
+        //            let popData;
+        //            var stack = [];
+        //            while (tout.length > 0) {
+        //                popData = tout.shift();
+        //                while (stack.length > 0 || tin.length > 0) {
+        //                    if (stack.length < 0 || stack[stack.length - 1] != popData) {
+        //                        if (tin.length <= 0) return false;
+        //                        else stack.push(tin.shift());
+        //                    } else {
+        //                        stack.pop();
+        //                        break;
+        //                    }
+        //                }
+        //            }
+        //            return true;
+        //        }
+        //
+        //        validate([1, 2, 3], [3, 2, 1])
+
+        //        function F(){
+        //    if(!(this instanceof F)){
+        //        return new F();
+        //    }
+        //    this.a=10;
+        //    this.b=100;
+        //}
+        //        
+        //        var f1 = new F();
+        //        var f2=F();
+
+        //        function parseQueryString(url){
+        //            var res={};
+        //            let index = url.indexOf("?");
+        //            if(index===-1) return res;
+        //            let paramstr=url.slice(index+1);
+        //            let paramarr=paramstr.split("&");
+        //            for(let item of paramarr){
+        //                let tobj = item.split("=");
+        //                if(tobj.length>=2) res[tobj[0]]=tobj[1];
+        //            }
+        //            return res;
+        //        }
+        //        console.log(parseQueryString("http://witmax.cn/index.php?key0=0&key1=1&key2=2"));
+        //        
+        //        function isHidden(dom){//返回true则可见，false不可见
+        //            var $dom=$(dom);
+        //            var domfst=$dom.offset();
+        //            var domcon={
+        //                width:$dom.width,
+        //                height:$dom.height
+        //            };
+        //            var win = {
+        //                width:$(window).width,
+        //                height:$(window).height
+        //            };
+        //            if(domfst.left<=-domcon.width || domfst.left>=win.width ||domfst.top<=domcon.height
+        //              ||domfst.top >=win.height) return false;
+        //            return true;
+        //        }
+        //        
+        //        function unique(arr){
+        //            var obj={};
+        //            var res=[];
+        //            for(let item of arr){
+        //                if(obj[item]===undefined) obj[item]=typeof item;
+        //            }
+        //            for(let key in obj){
+        //                if(obj[key]==="number") res.push(parseInt(key))
+        //                else res.push(key);
+        //            }
+        //            return res;
+        //        }
+        //        console.log(unique([1,2,3,4,2]));
+
+        //        function bindDebounce() {
+        //            let timer = null;
+        //            return function(e) {
+        //                timer && clearTimeout(timer);
+        //                timer = setTimeout(function() {
+        //                    (function(e) {
+        //                        //todo
+        //                    })(e);
+        //                    timer = null;
+        //                }, 200);
+        //            }
+        //        }
+        //
+        //        function bindThrottle() {
+        //            let timer = null;
+        //            return function(e) {
+        //                if (timer) return;
+        //                timer = setTimeout(function() {
+        //                    (function(e) {
+        //                        //todo
+        //                    })(e);
+        //                    timer = null;
+        //                }, 200);
+        //        
+        //        }
+        //        }
+        //
+        //        [1, 2, [3, 5]].forEach(function(item, index, arr) {
+        //            console.log(item);
+        //        });
+
+    </script>
+</body>
+
+</html>
